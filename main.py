@@ -59,7 +59,7 @@ def main():
     print('Linear Regression MSE =', MSE)
     print('Linear Regression sigma dz =', sigma_dz)
     print('Linear Regression f_outlier =', f_outlier)
-    return
+    return z_phot, z_phot_err, flag_extrapolation
 
 if __name__ == "__main__":
     main()
