@@ -54,7 +54,7 @@ def compute_phot_z(X_train, X_test, y_train, params):
         # Estimate the prediction error
         z_phot_neigh = predict_kernel(X_train_neigh, X_train_neigh, alpha, gamma)
         residuals = y_train_neigh - z_phot_neigh
-        z_phot_err[i] = np.std(np.abs(residuals))
+        z_phot_err[i] = np.mean(np.abs(residuals))
         # Flag if the test point is an extrapolation
         if np.any(np.logical_or((X_test.iloc[i, :] < np.amin(X_train_neigh, axis=0)), (X_test.iloc[i, :] > np.amax(X_train_neigh, axis=0)))):
             flag_extrapolation[i] = 1
