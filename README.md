@@ -4,6 +4,7 @@ This repository contains a machine learning pipeline designed to predict astrono
 ## Pipeline Details
 ### Data Preprocessing
 The data preprocessing steps are handled in the preprocessing.py script. This includes reading the ASCII file, filtering and processing the data to generate features, and splitting the data into training and testing sets using stratified shuffle split.
+The data provided in the all_with_z_spec_filtered.ASCII file contain galaxies with known spectroscopic redshifts from three JWST fields: PRIMER-UDS, PRIMER-COSMOS and JADES.
 ### Hyperparameter Optimization
 Hyperparameter optimization is performed using Bayesian optimization, implemented in the bayesian_optimization.py script. The optimizer searches for the best parameters for the kernelized regression model.
 ### Model Training and Evaluation
