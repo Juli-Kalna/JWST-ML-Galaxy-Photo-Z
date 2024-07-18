@@ -25,3 +25,4 @@ The pipeline prints the following evaluation metrics for the optimized model on 
 - Fraction of outliers (f_outlier)
   
 These metrics help assess the accuracy and reliability of the predicted photometric redshifts.
+And returns the estimated photometric redshifts, predicted errors and flagged extrapolation.
