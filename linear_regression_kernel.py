@@ -1,11 +1,12 @@
 """
 This script defines functions for implementing kernelized linear regression with L2 regularization using a Gaussian Radial Basis Function (RBF) kernel.
-Key functionalities include computing the closed form solution for kernelized linear regression, calculating the RBF kernel, and making predictions using the kernelized model.
+Key functionalities include computing the closed form solution for kernelized linear regression, calculating the RBF kernel, making predictions using the kernelized model, and computing evaluation metrics.
 
 Functions:
 - rbf_kernel: Computes the Gaussian RBF kernel between two matrices.
 - closed_form_kernel: Computes the closed form solution for kernelized linear regression with L2 regularization.
 - predict_kernel: Makes predictions using the kernelized model.
+- calc_metrics: Computes evaluation metrics.
 
 Input Parameters:
 - X_train (np.ndarray): Training data features.
@@ -19,6 +20,7 @@ Outputs:
 - alpha (np.ndarray): Weights in the kernelized space from the kernelized model.
 - kernel_matrix (np.ndarray): Kernel matrix computed from the RBF kernel.
 - predictions (np.ndarray): Predicted values for the test data.
+- mse, sigma_dz, f_outlier (float): evaluation metrics
 """
 
 import numpy as np
@@ -46,3 +48,12 @@ def predict_kernel(X_train, X_test, alpha, gamma):
     # Predict using the learned alpha weights
     predictions = K_test.dot(alpha)
     return predictions
+
+def calc_metrics(z_phot, z_spec):
+    mse = np.mean((z_phot - z_spec)**2)
+    dz = (z_phot - z_spec) / (1 + z_spec)
+    MAD = np.median(np.abs(dz - np.median(dz)))
+    sigma_dz = 1.4826 * MAD
+    outliers = np.abs(dz) > 0.15
+    f_outlier = np.sum(outliers) / len(dz)
+    return mse, sigma_dz, f_outlier
