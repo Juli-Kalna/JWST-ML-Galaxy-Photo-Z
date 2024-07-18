@@ -20,8 +20,8 @@ import pandas as pd
 from sklearn.model_selection import StratifiedKFold
 from preprocessing import init
 from bayesian_optimization import optimize_model
-from metrics import calc_metrics, plot_regression, plot_evaluations, plot_prob_hist
 from compute_photo_z import compute_phot_z
+from linear_regression_kernel import calc_metrics
 
 def main():
     # Initialize parameters
@@ -59,9 +59,6 @@ def main():
     print('Linear Regression MSE =', MSE)
     print('Linear Regression sigma dz =', sigma_dz)
     print('Linear Regression f_outlier =', f_outlier)
-    plot_regression(y_test, z_phot, sigma_dz, f_outlier, flag_extrapolation)
-    plot_evaluations(y_test, z_phot, z_phot_err)
-    plot_prob_hist((z_phot-y_test)/z_phot_err)
     return
 
 if __name__ == "__main__":
