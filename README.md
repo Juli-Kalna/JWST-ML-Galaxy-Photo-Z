@@ -1,6 +1,6 @@
 # Predicting Astronomical Redshifts using Kernelized Regression
 ## Overview
-This repository contains a machine learning pipeline designed to predict astronomical redshifts using kernelized local linear regression. The pipeline involves data preprocessing, hyperparameter optimization using Bayesian optimization, model training, and evaluation.
+This repository contains a machine learning pipeline designed to predict astronomical redshifts using kernelized local regression. The pipeline involves data preprocessing, hyperparameter optimization using Bayesian optimization, model training, and evaluation.
 ## Pipeline Details
 ### Data Preprocessing
 The data preprocessing steps are handled in the preprocessing.py script. This includes reading the ASCII file, filtering and processing the data to generate features, and splitting the data into training and testing sets using stratified shuffle split.
